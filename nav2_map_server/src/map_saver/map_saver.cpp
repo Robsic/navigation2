@@ -178,7 +178,7 @@ bool MapSaver::saveMapTopicToFile(
     rclcpp::QoS map_qos = rclcpp::SystemDefaultsQoS();  // initialize to default
     if (map_subscribe_transient_local_) {
       map_qos = rclcpp::QoS(10);
-      map_qos.transient_local();
+      map_qos.durability_volatile();
       map_qos.reliable();
       map_qos.keep_last(1);
     }
